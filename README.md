@@ -19,26 +19,27 @@
 
 ## items テーブル
 
-| Column              | Type     | Options     |
-| ------------------- | -------- | ----------- |
-| product_name        | string   | null: false |
-| product_description | text     | null: false |
-| category_id         | integer  | null: false |
-| condition_id        | integer  | null: false |
-| shipping.charges_id | integer  | null: false |
-| shipping.area_id    | integer  | null: false |
-| shipping.day_id     | integer  | null:false  |
-| price               | integer  | null:false  |
+| Column              | Type       | Options                      |
+| ------------------- | -----------| ---------------------------- |
+| name                | string     | null: false                  |
+| description         | text       | null: false                  |
+| category_id         | integer    | null: false                  |
+| condition_id        | integer    | null: false                  |
+| shipping_charges_id | integer    | null: false                  |
+| shipping_area_id    | integer    | null: false                  |
+| shipping_day_id     | integer    | null:false                   |
+| price               | integer    | null:false                   |
+| user                | references | null:false, forign_key: true |
 
 ###Association
-- belongs_to: users
+- belongs_to: user
 - has_one: purchase
 
-## address テーブル
+## addresses テーブル
 
 | Column          | Type       | Options                       |
 |---------------- |------------|-------------------------------|
-| potal.code_id   | integer    | null: false                   |
+| potal_code      | string     | null: false                   |
 | prefectures_id  | integer    | null: false                   |
 | municipality    | string     | null: false                   |
 | block           | string     | null: false                   |
@@ -50,7 +51,7 @@
 ###Association
 - belongs_to: purchase
 
-# purchase テーブル
+# purchases テーブル
 
 | Column             | Type       | Options                        |
 |--------------------| -----------|--------------------------------|
@@ -58,8 +59,8 @@
 | item               | references | null: false, foreign_key: true |
 
 ###Association
-- belongs_to: users
+- belongs_to: user
 - has_one: address
-- belongs_to: items
+- belongs_to: item
 
 
