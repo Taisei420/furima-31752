@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
     validates :category_id
@@ -16,7 +17,7 @@ class Item < ApplicationRecord
     validates :shipping_charges_id
     validates :shipping_area_id
     validates :shipping_day_id
-    validates :price
+    validates_inclusion_of :price,in:300..9999999
     validates :user
   end
 end
