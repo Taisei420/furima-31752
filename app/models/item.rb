@@ -7,7 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_day_
   
   has_one_attached :image
-
+  belongs_to :user
+  
   with_options presence: true do
     validates :image
     validates :name
@@ -18,6 +19,5 @@ class Item < ApplicationRecord
     validates :shipping_area_id
     validates :shipping_day_id
     validates_inclusion_of :price,in:300..9999999
-    validates :user
   end
 end
