@@ -55,14 +55,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
 
-      it "shipping_charges_idが空では登録できない" do
-        @item.shipping_charges_id = nil
+      it "shipping_charge_idが空では登録できない" do
+        @item.shipping_charge_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charges can't be blank")
       end
 
-      it "shipping_charges_idが0の場合出品できない" do
-        @item.shipping_charges_id = 0
+      it "shipping_charge_idが0の場合出品できない" do
+        @item.shipping_charge_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charges must be other than 0")
       end
