@@ -126,7 +126,7 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
 
     <ul class='item-lists'>
-     <% if @items.user_id == current_user.id %>
+     <% if @items.present? %>
         <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
        <% @items.each do |item| %>
          <li class='list'>
@@ -177,7 +177,7 @@
         </div>
         <% end %>
       </li>
-     <% end %>
+      <% end %>
       <%# //商品がある場合は表示されないようにしましょう %>
       <%# /商品がない場合のダミー %>
     </ul>
