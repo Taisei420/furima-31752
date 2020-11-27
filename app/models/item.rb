@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :shipping_charge
-  belongs_to_active_hash :shipping_day_
+  belongs_to_active_hash :shipping_day
   
   has_one_attached :image
   belongs_to :user
@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :description
     validates :category_id, numericality: { other_than: 0 }
     validates :condition_id, numericality: { other_than: 0}
-    validates :shipping_charges_id, numericality: { other_than: 0 }
+    validates :shipping_charge_id, numericality: { other_than: 0 }
     validates :shipping_area_id, numericality: { other_than: 0 }
     validates :shipping_day_id, numericality: { other_than: 0 }
     validates_inclusion_of :price,in:300..9999999
