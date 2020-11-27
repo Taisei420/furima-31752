@@ -11,7 +11,8 @@ class User < ApplicationRecord
   end
   
   validates :password, format: { with: /\A[a-zA-Z0-9]+\z/}
-  
+  has_many :items
+
   with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
     validates :last_name
     validates :first_name 
