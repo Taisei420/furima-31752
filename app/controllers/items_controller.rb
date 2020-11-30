@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :dastroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update]  
 
@@ -36,7 +36,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
+    if current_user.id == @item.user_id
+      @item.destroy
       redirect_to root_path
     end
   end
