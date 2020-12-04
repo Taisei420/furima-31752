@@ -12,6 +12,11 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'クレジットカード情報と配送先の情報があれば購入できる' do
         expect(@purchase_address).to be_valid
       end
+
+      it 'building_numberが空でも登録できる' do
+        @purchase_address.building_number = nil
+        expect(@purchase_address).to be_valid
+      end
     end
 
     context '商品が購入できない時' do
