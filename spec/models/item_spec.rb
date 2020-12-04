@@ -81,7 +81,7 @@ RSpec.describe Item, type: :model do
 
       it "shipping_day_idが空では登録できない" do
         @item.shipping_day_id = nil
-        @item.valid?
+        @item.valid?11111111
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
 

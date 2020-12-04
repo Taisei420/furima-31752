@@ -16,6 +16,10 @@ default: &default
   username: root
   password:
   host: localhost
+  # variables:
+  # sql_mode: TRADITIONAL
+
+
 
 development:
   <<: *default
